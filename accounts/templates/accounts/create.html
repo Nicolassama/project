@@ -1,0 +1,49 @@
+{% extends 'navigation.html' %}
+{% load django_bootstrap5 %}
+{% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/create.css' %}"> <!-- スタイルシートの読み込み -->
+
+<div class="container">
+    <h1>画像アップロード結果</h1>
+
+    <!-- 結果表示エリア -->
+    <div class="result">
+        {% if answer %}
+            <p><strong>結果:</strong> {{ answer }}</p>
+        {% else %}
+            <p>結果は表示されていません。</p>
+        {% endif %}
+    </div>
+
+    <!-- 画像アップロードフォーム -->
+    <form action="{% url 'upload_file' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if form.errors %}
+            <div class="error">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+        <label for="file">画像をアップロード:</label>
+        <input type="file" name="file" id="file" required>
+        <button type="submit">判定</button>
+    </form>
+
+    <div class="divider">
+        画像の診断<br>
+        または<br>
+        画像の投稿
+    </div>
+
+    <!-- 投稿作成フォーム -->
+    <form method="POST" action="{% url 'posts_index' %}" enctype="multipart/form-data" class="bg-white p-4 mt-8">
+        {% csrf_token %}
+        <label class="">画像をアップロード:</label>
+        <input type="file" class="" name="image" />
+        <label class="caption">キャプション</label>
+        <textarea class="caption-form" name="caption" rows="8" placeholder="キャプションを入力してください..."></textarea>
+        <button type="submit" class="submit">公開</button>
+    </form>
+</div>
+
+{% endblock %}

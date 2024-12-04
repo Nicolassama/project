@@ -1,0 +1,28 @@
+.box {
+    position:absolute;
+	top:35%;
+	left:50%;
+	width:480px;
+	height:380px;
+	margin:-130px 0 0 -250px;
+	padding:10px;
+	background: #ffffff url(bg_contents.gif) repeat-x;
+	color:black;
+	text-align:center;
+    border-radius: 5px;
+    font-weight: bold;
+    border: solid 1px black;
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+    line-height: 10px;
+}
+
+.delete {
+    width: 70px;
+    border: 2px solid #b84c00;
+    border-radius: 90vh;
+    font-size: 13px;
+}
+
+.caption {
+    margin-top: 20px;
+}

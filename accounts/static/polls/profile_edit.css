@@ -1,0 +1,119 @@
+/* 基本のレイアウト */
+body {
+    background-color: #f7f9fc; /* 優しい背景色 */
+    font-family: Arial, sans-serif;
+
+}
+
+/* コンテナ */
+.box2 {
+    width: 100%;
+    max-width: 600px; /* フォームの最大幅 */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ヘッダー */
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* フォーム要素 */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 各フォーム項目の間隔 */
+}
+
+/* ラベル */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555555;
+}
+
+/* 入力フィールド */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* テキストエリアのスタイル */
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* ボタン */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.back {
+    background-color: #f0f0f0;
+    color: #333333;
+    margin-right: 10px;
+}
+
+.back:hover {
+    background-color: #ddd;
+}
+
+.submit {
+    background-color: #28a745; /* 保存ボタンの色 */
+    margin-left: 10px;
+}
+
+.submit:hover {
+    background-color: #218838;
+}
+
+/* エラーメッセージ */
+/* エラーメッセージのスタイル */
+.mb-4 {
+    color: #ff3333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 通常のテキストや見出しに影響しないように、エラーメッセージ専用のスタイルを指定 */
+form > p.mb-4 {
+    color: #ff3333;
+}
+
+
+/* スペーシング */
+.mt-6 {
+    margin-top: 30px;
+}
+
+/* ボックスの内側に余白を */
+.box2 {
+    padding: 30px;
+}

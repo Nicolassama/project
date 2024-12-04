@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/detail.css' %}">
+
+<!-- ユーザー情報セクション -->
+<section class="user-info box">
+  <div class="user-header">
+    {% if user.icon %}
+      <img class="user-icon" src="{{ user.icon.path }}" alt="ユーザーアイコン" />
+    {% endif %}
+    <div class="user-details">
+      <p><strong>ユーザー名：</strong>{{ user.username }}</p>
+      <p><strong>紹介文：</strong>{{ user.description }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- 投稿一覧セクション -->
+<section class="post-list">
+  {% for post in posts %}
+    <div class="post-item box1">
+      <a href="{% url 'posts_detail' post.pk %}">
+        <img class="post-image" src="{{ post.image.medium.url }}" alt="投稿画像" />
+      </a>
+      <div class="post-caption">
+        <p><strong>説明文：</strong>{{ post.caption }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

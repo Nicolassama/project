@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/edit.css' %}">
+<div class="box">
+  <p class="">オーナー：{{ post.user.username }}</p>
+  <img class="" src="{{ post.image.medium.url }}" />
+  <div class="">
+    <div class="">
+        <p class="caption">説明文：{{ post.caption }}</p>
+    </div>
+  </div>
+  <form method="POST" action="{% url 'delete_post' post.pk %}">{% csrf_token %}
+    <button class="delete" type="submit" onclick='return confirm("本当に削除しますか？");'>削除</button>
+  </form>
+</div>
+{% endblock %}

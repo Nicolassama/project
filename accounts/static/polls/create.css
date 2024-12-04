@@ -1,0 +1,153 @@
+/* 全体的なスタイル */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc;
+    color: #333;
+}
+
+/* コンテナ */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* ヘッダー */
+h1 {
+    font-size: 32px;
+    color: #2d3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 結果表示エリア */
+.result {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.result p {
+    font-size: 18px;
+    color: #555;
+}
+
+.result strong {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* エラー表示 */
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* フォーム */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* フォームラベル */
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+    display: block;
+}
+
+/* ファイル入力 */
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="file"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* テキストエリア */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* ボタン */
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* セクション間の区切り */
+.divider {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 18px;
+    color: #888;
+}
+
+/* スマートフォン向けレスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+    }
+
+    textarea {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,89 @@
+/* 背景やコンテナの調整 */
+.container {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 3px solid #81F7BE;
+  }
+  
+  .card-body {
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+  
+  .text-muted {
+    font-style: italic;
+  }
+  
+  /* 画像がない場合 */
+  .card-body .text-center {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  /* ホバー時のリンクスタイル */
+  .card a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+  }
+  
+  .card a:hover {
+    color: #81F7BE;
+  }
+  
+  /* レスポンシブ対応 */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+  
+    .card-img-top {
+      height: 200px;
+    }
+  
+    .card-title {
+      font-size: 16px;
+    }
+  
+    .card-text {
+      font-size: 14px;
+    }
+  }
+  

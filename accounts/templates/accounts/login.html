@@ -1,0 +1,16 @@
+{% load static %}
+{% block main %}
+<link rel="stylesheet" href="{% static 'polls/login.css' %}">
+<div class="login-container">
+    <div class="login-box">
+        <h2>ログイン</h2>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="ユーザー名" required>
+            <input type="password" name="password" placeholder="パスワード" required>
+            <button type="submit">ログイン</button>
+        </form>
+        <p>アカウントをお持ちでない場合は <a href="{% url 'signup' %}">こちら</a></p>
+    </div>
+</div>
+{% endblock %}

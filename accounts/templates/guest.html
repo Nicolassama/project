@@ -1,0 +1,37 @@
+{% load django_bootstrap5 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Anista</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'polls/guest.css' %}">
+  </head>
+  <body>
+    <div id="wrap">
+      <!-- シンプルなナビゲーションバー -->
+      <header class="header">
+        <div class="navbar">
+          <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'assets/logo.png' %}" alt="Anista Logo" class="logo-image">
+          </a>
+          <div class="nav-links">
+            <a href="{% url 'login' %}" class="nav-link">ログイン</a>
+            <a href="{% url 'signup' %}" class="nav-link">会員登録</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- メインコンテンツ -->
+      <main>
+        {% block main %}
+        {% endblock %}
+      </main>
+    </div>
+
+    {% bootstrap_javascript %}
+  </body>
+</html>

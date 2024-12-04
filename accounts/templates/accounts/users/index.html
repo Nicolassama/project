@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/index.css' %}">
+
+<div class="container1">
+    <h1>オーナー一覧</h1>
+    <div>
+        {% for user in users %}
+        <a href="{% url 'users_detail' user.pk %}">
+            <div class="box1">
+                <div>
+                    <p><strong>オーナー名:</strong> {{ user.username }}</p>
+                    <p class="font-medium">紹介文: {{ user.description }}</p>
+                    <p class="text-sm">投稿件数: {{ user.post_set.count }} 件</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

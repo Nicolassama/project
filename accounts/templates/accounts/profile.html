@@ -1,0 +1,41 @@
+{% extends 'navigation.html' %}
+{% block main %}
+<div class="container mt-4">
+  <!-- プロフィール情報 -->
+  <div class="profile-card bg-light p-4 rounded shadow-sm">
+    <div class="profile-header d-flex justify-content-between align-items-center mb-3">
+      <h2 class="profile-username">{{ user.username }}</h2>
+      <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-sm">ログアウト</button>
+      </form>
+    </div>
+    <p><strong>メールアドレス:</strong> {{ user.email }}</p>
+    <p><strong>自己紹介:</strong> {{ user.description }}</p>
+    <a href="{% url 'profile_edit' %}" class="btn btn-primary btn-sm mt-2">プロフィールを編集</a>
+  </div>
+
+  <!-- 投稿リスト -->
+  <div class="posts-section mt-5">
+    <h3>{{ user.username }} の投稿一覧</h3>
+    {% if posts %}
+      <div class="row g-4 mt-3">
+        {% for post in posts %}
+          <div class="col-md-4">
+            <div class="post-card bg-white rounded shadow-sm">
+              <a href="{% url 'posts_detail' post.pk %}">
+                <img class="post-image img-fluid rounded-top" src="{{ post.image.medium.url }}" alt="投稿画像">
+              </a>
+              <div class="post-caption p-3">
+                <p class="mb-0">{{ post.caption }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-muted">まだ投稿はありません。</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

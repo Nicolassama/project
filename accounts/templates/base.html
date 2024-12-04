@@ -1,0 +1,30 @@
+{% load static %}
+{% load django_bootstrap5 %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Anista</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'polls/login.css' %}">
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+  </head>
+
+  <body>
+    <div class="">
+      {% include 'navigation.html' %}
+      <header class="">
+        <div class="">
+          {% block title %}
+          {% endblock %}
+        </div>
+      </header>
+      <main>
+        {% block main %}
+        {% endblock %}
+      </main>
+    </div>
+  </body>
+</html>

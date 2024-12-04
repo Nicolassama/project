@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block main %}
+{% load static %}
+  <div>
+    <div class="max-w-5xl mx-auto">
+      <div class="py-8">
+        <div class="bg-white">
+          <div class="grid grid-cols-3 gap-1">
+            {% for post in posts %}
+              <a href="/posts/{{ post.id }}"><img class="aspect-[1/1] w-full object-cover" src="{{ post.image.path }}" /></a>
+              {% if request.user.user_id == post.user_id %}
+                <form method="POST" action="{% url 'delete_post' post.pk %}">{% csrf_token %}
+                  <button class="btn" type="submit" onclick='return confirm("本当に削除しますか？");'>削除</button>
+                </form>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

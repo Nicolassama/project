@@ -1,0 +1,52 @@
+{% load django_bootstrap5 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Anista</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  </head>
+  <body>
+    <link rel="stylesheet" href="{% static 'polls/navigation.css' %}">
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <div id="wrap">
+      <header>
+        <div class="header">
+          <div class="">
+            <a href="{% url 'home' %}">
+              {% load static %}
+              <img src="{% static 'assets/logo.png' %}" class="image" />
+            </a>
+            <nav class="top">
+              <div class="hidden">
+                <a href="{% url 'home' %}" class="block1">home</a>
+                <a href="{% url 'create' %}" class="block1">新規作成</a>
+                <a href="{% url 'users_index' %}" class="block1">オーナー</a>
+                <a href="{% url 'profile' %}" class="block1">プロフィール</a>
+              </div>
+            </nav>
+          </div>
+          <main>
+            {% block main %}
+            {% endblock %}
+          </main>
+        </div>
+      </header>
+      
+      <div id="leftnavi">
+      </div>
+      
+      <div id="contents">
+      </div>
+      
+      <div id="rightnavi">
+      </div>
+      
+      <footer>
+      </footer>      
+    </div>
+  </body>
+</html>
