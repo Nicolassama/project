@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rz@*0vwd$y@(*e#yq_nxn*!)gsr_t@@w4k3qg)o*3vos3t(!6='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '.pythonanywhere.com', 'hagita.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -116,11 +116,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'accounts/static')]
-STATIC_ROOT = '/home/hagita/hagita.pythonanywhere.com/static'
-
-
-
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'accounts/static')]
+STATICFILES_DIRS = [
+    BASE_DIR / "accounts/static",
+]
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/images')
@@ -156,10 +155,3 @@ DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
-from django.core.management.utils import get_random_secret_key
-SECRET_KEY = get_random_secret_key()  
-
-try:
-    from .local_settings import *
-except:
-    pass
