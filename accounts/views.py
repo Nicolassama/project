@@ -14,9 +14,7 @@ from werkzeug.utils import secure_filename
 from PIL import UnidentifiedImageError
 from django.conf import settings
 
-
-
-from .forms.signup import SignUpForm, LoginFrom
+from .forms.signup import SignUpForm, LoginForm
 from .models import Post, Comment
 
 # モデルロードと定数設定
@@ -35,13 +33,12 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 class LoginView(BaseLoginView):
-    form_class = LoginFrom
+    form_class = LoginForm
     template_name = "accounts/login.html"
 
 
 class LogoutView(LoginRequiredMixin, LogoutView):
     template_name = "accounts/login.html"
-
 
 class SignUpView(CreateView):
     form_class = SignUpForm
@@ -49,9 +46,15 @@ class SignUpView(CreateView):
     template_name = "accounts/signup.html"
 
     def form_valid(self, form):
-        user = form.save()
-        login(self.request, user)
-        return redirect(self.get_success_url())
+        if form.is_valid():
+            user = form.save()
+            login(self.request, user)
+            
+            self.object = user
+
+            return redirect(self.get_success_url())
+        else:
+            return self.form_invalid(form)
 
 def users_index(request):
     users = User.objects.exclude(is_superuser=True).order_by("-created_at")
@@ -64,7 +67,7 @@ def users_detail(request, user_id):
 
 @login_required
 def profile(request):
-    user_posts = request.user.post_set.order_by('-created_at')  # `post_set`は関連名
+    user_posts = request.user.post_set.order_by('-created_at') 
     return render(request, "accounts/profile.html", {"user": request.user, "posts": user_posts})
 
 @login_required
@@ -131,7 +134,6 @@ def comments_create(request, post_id):
     )
     return redirect("posts_detail", post.id)
 
-# 画像アップロードビュー
 def upload_file(request):
     if request.method == 'POST':
         file = request.FILES.get('file')
